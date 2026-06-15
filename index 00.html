@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troy Prado Jr. — Sustainable Innovation & Mechanical Design</title>
+  <meta name="description" content="Professional portfolio of Troy Prado Jr., showcasing expertise in mechanical design, sustainable innovation, competitive robotics (RoboSub & RoboBoat), and engineering leadership." />
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons for premium details -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="selection:bg-primary/20">
+  
+  <!-- Modern Floating Header -->
+  <header class="header">
+    <nav class="navbar">
+      <a href="#" class="logo">TPJ</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <!-- Decorative blurred shapes mirroring Replit styling -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <div class="hero-container">
+      <div class="hero-image-wrapper">
+        <img src="profile_picture.png" alt="Portrait of Troy Prado Jr." class="hero-avatar" />
+        <div class="badge-status">
+          <span class="pulse-dot"></span> Available for Labs
+        </div>
+      </div>
+      
+      <div class="hero-info">
+        <span class="hero-tag">Mechanical Engineer</span>
+        <h1 class="hero-title">Troy Prado Jr.</h1>
+        <p class="hero-subtitle">Sustainable Innovation, Mechanical Design</p>
+        <p class="hero-bio">Based in San Diego. Aspiring Mechanical Engineer balancing technical precision with environmental consciousness.</p>
+        
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Explore My Work</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>About Me</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Collaborative Leadership</h3>
+            <p>I led multidisciplinary teams through the complexities of competitive robotics as the Director and Coordinator for my campus SHPE chapter as well as a core member of the Mechanical crew of Team Inspiration.</p>
+          </div>
+          <div class="about-card">
+            <h3>Iterative Philosophy</h3>
+            <p>My approach to engineering is rooted in iterative testing, hardware reliability, and sustainable practices. I believe that the best solutions are those that solve problems efficiently while promoting creativity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>My Technical Arsenal</h2>
+          <p>A breakdown of my technical capabilities spanning engineering design, software config, and circular fabrication.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skills-category">
+            <h3>Mechanical Design</h3>
+            <div class="skill-pills">
+              <span>SolidWorks</span>
+              <span>Fusion 360</span>
+              <span>3D Modeling</span>
+              <span>Rapid Prototyping</span>
+              <span>GD&T</span>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Hardware & Systems</h3>
+            <div class="skill-pills">
+              <span>Hardware Integration</span>
+              <span>Power Distribution</span>
+              <span>Waterproofing Enclosures</span>
+              <span>Sensor Arrays</span>
+              <span>Arduino / Pi</span>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Robotics & Software</h3>
+            <div class="skill-pills">
+              <span>ROS2 Stack</span>
+              <span>QGroundControl</span>
+              <span>MATLAB Coding</span>
+              <span>Failsafe Configuration</span>
+              <span>Git / Linux</span>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Fabrication & Eco</h3>
+            <div class="skill-pills">
+              <span>Metal Fabrication</span>
+              <span>Upcycling Design</span>
+              <span>Circular Fashion</span>
+              <span>Sustainable Innovation</span>
+              <span>Lab Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio & Projects Section -->
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Projects Portfolio</h2>
+          <p>Filter my projects to explore robotics subsystems, gym equipment fabrication, and creative sustainable designs.</p>
+        </div>
+
+        <!-- Tabbed Filter Buttons -->
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">Show All</button>
+          <button class="filter-tab" data-filter="robotics">Robotics & Autonomous</button>
+          <button class="filter-tab" data-filter="gym">Gym Innovations</button>
+          <button class="filter-tab" data-filter="shpe">School & SHPE</button>
+          <button class="filter-tab" data-filter="creative">Creative Projects</button>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="project-grid" id="projectGrid">
+          
+          <!-- Card 1: RoboBoat 2026 -->
+          <div class="project-card" data-category="robotics" data-id="roboboat">
+            <div class="project-image-wrapper">
+              <img src="boat-in-water.jpg" alt="Roboboat 2026 Autonomous Systems Competition" class="project-card-image" />
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Featured / Robotics</span>
+              <h3>Roboboat 2026 Autonomous Systems Competition</h3>
+              <p class="project-card-desc">A fully autonomous boat project where I spearheaded 3D modeling, mechanical design, physical assembly, and electrical integration. Conducted extensive field testing and hardware refinement in marine environments.</p>
+              <div class="project-card-meta">
+                <span class="award-pill">1st Place Best Website</span>
+                <span class="award-pill">3rd Place TDR</span>
+              </div>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Subsystems</button>
+            </div>
+          </div>
+
+            <!-- Card 2: Monkey Bot Autonomous Car -->
+            <div class="project-card" data-category="robotics" data-id="monkeybot">
+              <div class="project-image-wrapper">
+                <img src="monkey_bot.jpg" alt="Monkey Bot — Autonomous RC Vehicle" class="project-card-image" />
+              </div>
+              <div class="project-card-body">
+                <span class="project-card-badge">Robotics / Autonomous</span>
+                <h3>Monkey Bot — Autonomous RC Vehicle</h3>
+                <p class="project-card-desc">Developed in collaboration with a 3-person team, Monkey Bot is a fully autonomous RC car. My contributions included the complete 3D design of the chassis, complex wiring of the sensor suite, and developing the core autonomous navigation code.</p>
+                <button class="btn btn-secondary btn-sm open-details-btn">View Mechanical & Elec</button>
+              </div>
+            </div>
+
+          <!-- Card 2: RoboSub 2026 -->
+          <div class="project-card" data-category="robotics" data-id="robosub">
+            <div class="project-image-wrapper">
+              <img src="robosub-card.png" alt="Robosub 2026 Autonomous Underwater Vehicle" class="project-card-image" />
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Featured / Robotics</span>
+              <h3>Robosub 2026 Autonomous Underwater Vehicle</h3>
+              <p class="project-card-desc">Co-lead and lab manager for Team Inspiration's RoboSub 2026 campaign. Spearheaded bill-of-materials, subsystem lists, and meticulously documented physical component locations.</p>
+              <div class="project-card-meta">
+                <span class="status-pill">Competing July 11-16</span>
+              </div>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Details</button>
+            </div>
+          </div>
+
+          <!-- Card 3: BattleBot Competition -->
+          <div class="project-card" data-category="shpe" data-id="battlebot">
+            <div class="project-image-wrapper">
+              <img src="battlebot-details.png" alt="Team Captained a BattleBot Competition" class="project-card-image" />
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Featured / School & SHPE</span>
+              <h3>Team Captained a BattleBot Competition</h3>
+              <p class="project-card-desc">Team captain of a Beetleweight BattleBot competition. Led the design and build of a 3 lb combat robot, coordinating mechanical design, electronics integration, and strategy.</p>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Wiring & CAD</button>
+            </div>
+          </div>
+
+          <!-- Card 4: Tensile Strength Tester -->
+          <div class="project-card" data-category="shpe" data-id="tensile">
+            <div class="project-image-wrapper">
+              <img src="tensile-tester-details.png" alt="Tensile Strength Tester" class="project-card-image" />
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">School & SHPE</span>
+              <h3>Tensile Strength Tester</h3>
+              <p class="project-card-desc">Developed a tensile strength testing application in MATLAB to analyze material properties, stress-strain curves, ultimate stress thresholds, and fracture points.</p>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Stress Charts</button>
+            </div>
+          </div>
+
+          <!-- Card 5: SD Mesa Engineering Club Workshop -->
+          <div class="project-card" data-category="shpe" data-id="leadership">
+            <div class="project-image-wrapper">
+              <img src="shpe-leadership.png" alt="SD Mesa Engineering Club Outreach" class="project-card-image" />
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Leadership / School</span>
+              <h3>SHPE & Mesa Engineering Club Leadership</h3>
+              <p class="project-card-desc">Served as SHPE Campus Chapter Director/Member and Director of Membership of the Engineering Club, organizing python/arduino workshops, student panels, and academic outreach events.</p>
+              <button class="btn btn-secondary btn-sm open-details-btn">Read Leadership Bio</button>
+            </div>
+          </div>
+
+          <!-- Card 6: Gym Trap Bar -->
+          <div class="project-card" data-category="gym" data-id="trapbar">
+            <div class="project-image-wrapper">
+              <img src="trap_bar.jpg" alt="Custom Trap Bar" class="project-card-image" />
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Gym Innovations</span>
+              <h3>Custom Trap Bar</h3>
+              <p class="project-card-desc">Designed and fabricated a custom trap bar with dual-handle heights and reinforced structural welding for heavy high-performance strength training.</p>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Fabrication</button>
+            </div>
+          </div>
+
+          <!-- Card 7: Dumbbell Rack -->
+          <div class="project-card" data-category="gym" data-id="dumbrack">
+            <div class="project-image-wrapper">
+              <img src="dumbbell_rack.jpg" alt="Dumbbell Rack Design" class="project-card-image" />
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Gym Innovations</span>
+              <h3>Dumbbell Rack Design</h3>
+              <p class="project-card-desc">A space-saving vertical storage rack designed and fabricated using upcycled/recycled steel frame profiles to optimize home gym footprint.</p>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Materials</button>
+            </div>
+          </div>
+
+          <!-- Card 8: Custom Sled -->
+          <div class="project-card" data-category="gym" data-id="sled">
+            <div class="project-image-wrapper">
+              <img src="sled.jpg" alt="Custom Training Sled" class="project-card-image" />
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Gym Innovations</span>
+              <h3>Custom Training Sled</h3>
+              <p class="project-card-desc">Heavy-duty training sled designed for outdoor metabolic conditioning and explosive power development, featuring a custom weight-loading pin.</p>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Details</button>
+            </div>
+          </div>
+
+          <!-- Card 9: Row Machine -->
+          <div class="project-card" data-category="gym" data-id="rowmachine">
+            <div class="project-image-wrapper">
+              <img src="row_machine.jpg" alt="Chest-Supported Row Machine" class="project-card-image" />
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Gym Innovations</span>
+              <h3>Chest-Supported Row Machine</h3>
+              <p class="project-card-desc">Custom-built gym apparatus designed for targeted lat/back development with optimized physiological leverage and posture ergonomics.</p>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Ergonomics</button>
+            </div>
+          </div>
+
+          <!-- Card 10: Adjustable Weight Bench -->
+          <div class="project-card" data-category="gym" data-id="bench">
+            <div class="project-image-wrapper">
+              <img src="bench_support.jpg" alt="Adjustable Weight Bench" class="project-card-image" />
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Gym Innovations</span>
+              <h3>Adjustable Weight Bench</h3>
+              <p class="project-card-desc">Custom-engineered incline/decline mechanism for benches, offering modular angles and a rugged dual-locking security lock pin.</p>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Engineering</button>
+            </div>
+          </div>
+
+          <!-- Card 11: Curated Vintage Upcycling -->
+          <div class="project-card" data-category="creative" data-id="vintage">
+            <div class="project-image-wrapper">
+              <div class="project-card-image-placeholder vintage-bg">
+                <span class="placeholder-text">Circular Fashion</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Creative Projects</span>
+              <h3>Upcycled Curated Vintage Store</h3>
+              <p class="project-card-desc">Co-founded and managed a three-person collaborative upcycling venture, transforming waste textiles into premium circular curated streetwear.</p>
+              <div class="project-card-meta">
+                <span class="rating-pill">5.0 Rating</span>
+              </div>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Sustainability</button>
+            </div>
+          </div>
+
+          <!-- Card 12: Upcycled Dress Shirt -->
+          <div class="project-card" data-category="creative" data-id="shirt">
+            <div class="project-image-wrapper">
+              <div class="project-card-image-placeholder shirt-bg">
+                <span class="placeholder-text">Bespoke Design</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Creative Projects</span>
+              <h3>Upcycled Dress Shirt</h3>
+              <p class="project-card-desc">Custom-modified stripe dress shirt featuring hand-sewn detailed embroidery, blending bespoke formalwear with modern streetwear aesthetics.</p>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Graphic Work</button>
+            </div>
+          </div>
+
+          <!-- Card 13: Sustainable Hoodie -->
+          <div class="project-card" data-category="creative" data-id="hoodie">
+            <div class="project-image-wrapper">
+              <div class="project-card-image-placeholder hoodie-bg">
+                <span class="placeholder-text">Upcycled Fabric</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <span class="project-card-badge">Creative Projects</span>
+              <h3>Sustainable Fashion Design</h3>
+              <p class="project-card-desc">Custom upcycled hoodie featuring hand-sewn intricate graphics and a faux-fur lined hood, showcasing waste-stream reduction techniques.</p>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Details</button>
+            </div>
+          </div>
+
+        
+</div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Let's Engineer Something Sustainable Together</h2>
+            <p>Whether you're looking for mechanical design consulting, structural fabrication support, or autonomous robotics collaboration, I'm always open to discussing labs and ideas.</p>
+            <div class="contact-links">
+              <a href="mailto:troy.prado.jr@gmail.com" class="contact-link">
+                troy.prado.jr@gmail.com
+              </a>
+              <a href="https://www.linkedin.com/in/troypradojr" target="_blank" class="contact-link">
+                linkedin.com/in/troypradojr
+              </a>
+            </div>
+          </div>
+          <div class="contact-form-wrapper">
+            <form id="contactForm" class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required placeholder="Troy Prado" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required placeholder="troy.prado.jr@gmail.com" />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" required placeholder="Describe your project, lab requirement, or inquiry..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-full">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Troy Prado Jr. Engineered with precision. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- PREMIUM PROJECT MODAL SYSTEM (Tabbed Detailed Viewers!) -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="Close details">
+        <i class="fa-solid fa-times"></i>
+      </button>
+      
+      <div class="modal-header">
+        <span class="modal-badge" id="modalCategory">Category</span>
+        <h2 id="modalTitle">Project Title</h2>
+      </div>
+      
+      <!-- Inside Modal Tabs -->
+      <div class="modal-tabs" id="modalTabsContainer">
+        <!-- Will be dynamically injected by JS -->
+      </div>
+      
+      <div class="modal-content" id="modalContentContainer">
+        <!-- Will be dynamically injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
