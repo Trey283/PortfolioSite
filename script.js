@@ -473,6 +473,66 @@ const projectDetails = {
       }
     ]
   },
+  nablanotes: {
+    title: "NablaNotes — AI-Powered STEM Note-Taking Platform",
+    category: "Founder & Full-Stack Engineer",
+    tabs: [
+      {
+        id: "overview",
+        name: "Overview",
+        content: "Founded and engineered NablaNotes, an AI-powered STEM note-taking platform targeting community college students across San Diego. Architected and shipped the full product from concept to working beta using React, Vite, TanStack Start, and Supabase — including a real-time handwriting OCR pipeline powered by Gemini 2.5 Flash that converts handwritten equations into solved, graphed, and step-by-step explained results directly within the note canvas.",
+        highlights: [
+          { icon: "fa-layer-group", title: "Multi-Layer Local-First Persistence", text: "Built a localStorage → IndexedDB → Supabase cloud sync architecture ensuring zero data loss across sessions and devices." },
+          { icon: "fa-robot", title: "AI Tutor System", text: "Designed contextual equation lookup, YouTube video recommendations, and Socratic chat — all grounded in the student's actual handwritten work via canvas region capture." },
+          { icon: "fa-pen-nib", title: "Two-Canvas GPU-Composited Rendering", text: "Engineered pressure-sensitive stylus input, multi-page notebooks, custom template overlays, and real-time stroke timestamping synced to lecture audio." },
+          { icon: "fa-puzzle-piece", title: "Chrome Extension", text: "Built and published a companion Chrome extension enabling cross-platform screenshot capture from any homework platform directly into the note canvas." },
+          { icon: "fa-credit-card", title: "Stripe Subscription Infrastructure", text: "Implemented role-based feature gating, a promo code system for tracking student acquisition by institution, and full payment flows." },
+          { icon: "fa-user-gear", title: "Sole Engineer — Full Stack", text: "Product, infrastructure, AI integrations, database schema, auth, payments, and Chrome extension — all solo." }
+        ]
+      },
+      {
+        id: "stack",
+        name: "Tech Stack",
+        content: "NablaNotes is built on a modern full-stack architecture optimized for real-time collaboration, offline-first reliability, and AI-augmented learning experiences. Every layer was designed and implemented solo — from database schema to edge functions to the native iOS build pipeline.",
+        highlights: [
+          { icon: "fa-code", title: "Frontend", text: "React · Vite · TanStack Start — component-driven canvas architecture with GPU-composited dual-layer rendering." },
+          { icon: "fa-database", title: "Backend & Database", text: "Supabase · PostgreSQL — real-time subscriptions, row-level security, and cloud sync layered over local-first storage." },
+          { icon: "fa-wand-magic-sparkles", title: "AI & OCR", text: "Gemini 2.5 Flash — handwriting OCR pipeline converting equations to solved, graphed, and step-by-step explained results." },
+          { icon: "fa-mobile-screen", title: "Mobile & Extensions", text: "Capacitor (iOS, incoming) · Chrome Extensions API — cross-platform capture and native deployment." },
+          { icon: "fa-dollar-sign", title: "Payments & Auth", text: "Stripe · Supabase Auth — subscription tiers, promo codes, and role-based feature gating." },
+          { icon: "fa-flask", title: "Utilities", text: "Python · SymPy — server-side symbolic math processing for equation validation and step generation." }
+        ]
+      }
+    ]
+  },
+  southcoast: {
+    title: "AI Automations Engineer — South Coast Accounting",
+    category: "Work Experience · San Diego, CA · 2024 – Present",
+    tabs: [
+      {
+        id: "overview",
+        name: "Overview",
+        content: "Embedded as an AI Automations Engineer at a financial services firm, leading the systematic conversion of institutional knowledge into scalable, AI-executable workflow automations. Designed and implemented a documentation extraction pipeline that transforms existing staff procedures and compliance workflows into structured Claude AI skill sets — enabling non-technical team members to execute complex accounting and tax processes through guided AI assistance with zero prior AI experience.",
+        highlights: [
+          { icon: "fa-brain", title: "Knowledge Extraction Methodology", text: "Developed a proprietary process for capturing tacit institutional expertise from staff interviews and existing documentation into structured, version-controlled AI skill specifications." },
+          { icon: "fa-gears", title: "Claude-Powered Automation Skills", text: "Engineered a suite of automation skills covering tax intake, client onboarding, document processing, and compliance review — reducing manual processing time and standardizing output quality." },
+          { icon: "fa-book-open", title: "Firm-Wide AI Documentation Guide", text: "Produced technical documentation frameworks enabling staff to independently contribute to the automation library without engineering support." },
+          { icon: "fa-sitemap", title: "AI-Assisted Intake Interview Systems", text: "Designed multi-variable tax scenario intake systems that structure complex client situations into actionable, auditable decision trees." }
+        ]
+      },
+      {
+        id: "stack",
+        name: "Stack & Approach",
+        content: "All automations are built around Claude AI as the execution layer, with custom prompt engineering and skill architecture translating institutional accounting workflows into reliable, repeatable AI-driven processes accessible to non-technical staff.",
+        highlights: [
+          { icon: "fa-robot", title: "Claude AI", text: "Core AI execution layer for all automation skills — tax intake, onboarding, compliance review, and document processing." },
+          { icon: "fa-pen-fancy", title: "Prompt Engineering", text: "Systematic prompt design translating complex multi-step accounting procedures into structured, auditable AI workflows." },
+          { icon: "fa-file-invoice-dollar", title: "Financial Document Processing", text: "Automated extraction and structuring of client financial documents for intake and review workflows." },
+          { icon: "fa-diagram-project", title: "Workflow Automation", text: "End-to-end automation covering client lifecycle touchpoints from initial intake through compliance delivery." }
+        ]
+      }
+    ]
+  },
   monkeybot: {
     title: "Monkey Bot — Autonomous RC Car",
     category: "Robotics & Autonomous",
