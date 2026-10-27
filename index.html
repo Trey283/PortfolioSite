@@ -9,7 +9,7 @@
   <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..900;1,8..60,400..900&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons for premium details -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -33,18 +33,51 @@
       </button>
     </nav>
   </header>
+  <!-- Perspective Tunnel Intro: project photos fly toward the camera as you scroll -->
+  <section class="tunnel" id="tunnel" aria-label="Project highlights">
+    <div class="tunnel-stage">
+      <div class="tunnel-grid"></div>
+      <div class="tunnel-ring"></div>
+      <div class="tunnel-ring tunnel-ring-dashed"></div>
+
+      <div class="tunnel-title" id="tunnelTitle">
+        <p class="tunnel-kicker">Troy Prado Jr. — Portfolio</p>
+        <h2>Sustainable Innovation.<br />Mechanical Design.</h2>
+        <p class="tunnel-sub">Scroll to fly through robotics, fabrication, software, and sustainable design.</p>
+      </div>
+
+      <div class="tunnel-prompt" id="tunnelPrompt">
+        <span>Scroll to Explore</span>
+        <div class="tunnel-prompt-line"></div>
+      </div>
+
+      <div class="tunnel-space" id="tunnelSpace"></div>
+    </div>
+  </section>
+
   <!-- Hero Section -->
   <section class="hero-section">
+    <!-- "Ink Garden" ASCII dither art, rendered by script.js -->
+    <canvas class="hero-ascii" id="heroAscii" aria-hidden="true"></canvas>
+    <canvas class="hero-ascii hero-ascii-glow" id="heroAsciiGlow" aria-hidden="true"></canvas>
     <!-- Decorative blurred shapes mirroring Replit styling -->
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     
     <div class="hero-container">
       <div class="hero-info">
-        <span class="hero-tag">Mechanical Engineer</span>
+        <span class="hero-tag">Mechanical Engineer · San Diego</span>
         <h1 class="hero-title">Troy Prado Jr.</h1>
-        <p class="hero-subtitle">Sustainable Innovation, Mechanical Design</p>
-        <p class="hero-bio">Based in San Diego. Aspiring Mechanical Engineer balancing technical precision with environmental consciousness.</p>
+        <p class="hero-subtitle">I build things that hold up in the real world.</p>
+        <p class="hero-bio">With Team Inspiration I've helped design, wire, and field-test autonomous boats and subs that reached the semifinals and the top 10 at two RoboNation competitions. I founded and solo-built NablaNotes, an AI-powered STEM note-taking app now in beta on iPad, and as an AI Automations Engineer I turn complex workflows into systems anyone can run. As President of my campus SHPE chapter and Engineering Club, I bring people together to build.</p>
+
+        <div class="hero-highlights">
+          <span class="award-pill">Engineering &amp; SHPE President</span>
+          <span class="award-pill">Founder &amp; CEO, NablaNotes</span>
+          <span class="award-pill">2x RoboNation Semifinalist</span>
+          <span class="award-pill">2x RoboNation Top 10</span>
+          <span class="award-pill">AI Automations Engineer</span>
+        </div>
         
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">Explore My Work</a>
@@ -72,7 +105,7 @@
         <div class="about-grid">
           <div class="about-card">
             <h3>Collaborative Leadership</h3>
-            <p>I led multidisciplinary teams through the complexities of competitive robotics as the Director and Coordinator for my campus SHPE chapter as well as a core member of the Mechanical crew of Team Inspiration.</p>
+            <p>I led multidisciplinary teams through the complexities of competitive robotics as President of my campus SHPE chapter and Engineering Club as well as a core member of the Mechanical crew of Team Inspiration.</p>
           </div>
           <div class="about-card">
             <h3>Iterative Philosophy</h3>
@@ -158,12 +191,17 @@
           <!-- Card: NablaNotes Founder -->
           <div class="project-card" data-category="work" data-id="nablanotes">
             <div class="project-image-wrapper">
-              <div class="project-card-image-placeholder" style="background:#1a1a2e;"></div>
+              <img src="images/nablanotes/solve.webp" alt="NablaNotes on iPad solving a handwritten physics equation" class="project-card-image" />
             </div>
             <div class="project-card-body">
-              <span class="project-card-badge">Founder</span>
-              <h3>NablaNotes Founder</h3>
-              <button class="btn btn-secondary btn-sm open-details-btn">View Project</button>
+              <span class="project-card-badge">Founder / Full-Stack</span>
+              <h3>NablaNotes — AI-Powered STEM Notes</h3>
+              <p class="project-card-desc">Founded and solo-built an iPad note-taking app for STEM students: write an equation by hand, circle it, and get every step solved, graphed, and explained right beside the problem. Shipped end to end, from handwriting OCR and an AI tutor to payments and a Chrome extension.</p>
+              <div class="project-card-meta">
+                <span class="status-pill">Live on iPad — TestFlight Beta</span>
+                <span class="award-pill">Solo Founder &amp; Engineer</span>
+              </div>
+              <button class="btn btn-secondary btn-sm open-details-btn">View Product</button>
             </div>
           </div>
 
@@ -182,7 +220,7 @@
           <!-- Card: RoboSub 2026 -->
           <div class="project-card" data-category="robotics" data-id="robosub">
             <div class="project-image-wrapper">
-              <img src="robosub-card.png" alt="Robosub 2026 Autonomous Underwater Vehicle" class="project-card-image" />
+              <img src="images/new-project/main.jpg" alt="Robosub 2026 Autonomous Underwater Vehicle" class="project-card-image" />
             </div>
             <div class="project-card-body">
               <span class="project-card-badge">Featured / Robotics</span>
@@ -216,7 +254,7 @@
           <!-- Card: Monkey Bot Autonomous Car -->
           <div class="project-card" data-category="robotics" data-id="monkeybot">
             <div class="project-image-wrapper">
-              <img src="monkey_bot.jpg" alt="Monkey Bot — Autonomous RC Vehicle" class="project-card-image" />
+              <img src="images/monkeybot/main-action.jpg" alt="Monkey Bot — Autonomous RC Vehicle" class="project-card-image" />
             </div>
             <div class="project-card-body">
               <span class="project-card-badge">Robotics / Autonomous</span>
@@ -229,7 +267,7 @@
           <!-- Card: BattleBot Competition -->
           <div class="project-card" data-category="shpe" data-id="battlebot">
             <div class="project-image-wrapper">
-              <img src="battlebot-details.png" alt="Team Captained a BattleBot Competition" class="project-card-image" />
+              <img src="images/shpe/battlebot-2.jpg" alt="Team Captained a BattleBot Competition" class="project-card-image" />
             </div>
             <div class="project-card-body">
               <span class="project-card-badge">Featured / School & SHPE</span>
@@ -242,7 +280,7 @@
           <!-- Card: Tensile Strength Tester -->
           <div class="project-card" data-category="shpe" data-id="tensile">
             <div class="project-image-wrapper">
-              <img src="tensile-tester-details.png" alt="Tensile Strength Tester" class="project-card-image" />
+              <img src="images/projects/tensile-tester-1.png" alt="Tensile Strength Tester" class="project-card-image" />
             </div>
             <div class="project-card-body">
               <span class="project-card-badge">School & SHPE</span>
@@ -255,12 +293,12 @@
           <!-- Card: SD Mesa Engineering Club Workshop -->
           <div class="project-card" data-category="shpe" data-id="leadership">
             <div class="project-image-wrapper">
-              <img src="shpe-leadership.png" alt="SD Mesa Engineering Club Outreach" class="project-card-image" />
+              <img src="images/shpe-leadership.jpg" alt="SD Mesa Engineering Club Outreach" class="project-card-image" />
             </div>
             <div class="project-card-body">
               <span class="project-card-badge">Leadership / School</span>
               <h3>SHPE & Mesa Engineering Club Leadership</h3>
-              <p class="project-card-desc">Served as SHPE Campus Chapter Director/Member and Director of Membership of the Engineering Club, organizing python/arduino workshops, student panels, and academic outreach events.</p>
+              <p class="project-card-desc">Served as President of the campus SHPE chapter and, for one year, of the Engineering Club, organizing python/arduino workshops, student panels, and academic outreach events.</p>
               <button class="btn btn-secondary btn-sm open-details-btn">Read Leadership Bio</button>
             </div>
           </div>
@@ -307,7 +345,7 @@
           <!-- Card: Row Machine -->
           <div class="project-card" data-category="gym" data-id="rowmachine">
             <div class="project-image-wrapper">
-              <img src="row_machine.jpg" alt="Chest-Supported Row Machine" class="project-card-image" />
+              <img src="images/backrow-machine.jpg" alt="Chest-Supported Row Machine" class="project-card-image" />
             </div>
             <div class="project-card-body">
               <span class="project-card-badge">Gym Innovations</span>

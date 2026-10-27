@@ -52,8 +52,8 @@ window.addEventListener('scroll', () => {
 const styleSheet = document.createElement("style");
 styleSheet.innerText = `
   .header.scrolled {
-    box-shadow: 0 8px 30px rgba(44, 40, 37, 0.08);
-    background-color: rgba(244, 241, 235, 0.95);
+    box-shadow: 0 8px 30px rgba(91, 109, 70, 0.12);
+    background-color: rgba(228, 215, 176, 0.95);
   }
   @media (max-width: 768px) {
     .nav-links {
@@ -72,7 +72,7 @@ styleSheet.innerText = `
       pointer-events: none;
       transform: translateY(-10px);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 20px rgba(91, 109, 70, 0.1);
     }
     .nav-links.active {
       opacity: 1;
@@ -156,14 +156,14 @@ const projectDetails = {
       {
         id: "overview",
         name: "Overview",
-        content: "A fully autonomous boat project where I spearheaded the 3D modeling, mechanical design, physical assembly, and electrical integration. I conducted extensive field testing and iterative hardware refinement to ensure obstacle course reliability and hardware durability in marine environments.",
+        content: "A fully autonomous boat project where I spearheaded the 3D modeling, mechanical design, physical assembly, and electrical integration. I conducted extensive field testing and iterative hardware refinement to ensure obstacle course reliability and hardware durability in marine environments. Team Inspiration won 1st place for Best Website at RoboBoat 2026 — <a href='https://www.teaminspiration.global/crusader-mechanical-2026-1' target='_blank' rel='noopener'>check out the official team website</a>.",
         highlights: [
           { icon: "fa-trophy text-yellow-500", title: "1st Place — Best Website", text: "recognized for the best team website among all competing teams at Roboboat 2026." },
           { icon: "fa-award", title: "3rd Place — TDR (Technical Design Report)", text: "awarded for excellence in engineering documentation and design presentation." },
           { icon: "fa-star", title: "Prefinalists — 7th Place Overall", text: "advanced to the prefinalist round out of an international field of 40+ teams, securing a top-tier ranking and outperforming elite global institutions, including MIT." }
         ],
         images: [
-          { src: "roboboat-awards.png", label: "Roboboat 2026 Team Awards Photo", class: "modal-parts-img" }
+          { src: "images/roboboat/awards.jpg", label: "Team Inspiration at RoboBoat 2026 — 1st Place Website, 3rd Place Design Documentation", class: "modal-parts-img" }
         ]
       },
       {
@@ -175,8 +175,8 @@ const projectDetails = {
           { icon: "fa-water", title: "Buoyancy & Sealing", text: "Integrated custom gasket enclosures and waterproof wire-entry glands to prevent leaks." }
         ],
         images: [
-          { src: "roboboat-mechanical.png", label: "Mechanical Hull Assembly & CAD Model List", class: "modal-cad-img" },
-          { src: "master-bom.png", label: "RoboSub / RoboBoat Master BOM & Parts List", class: "modal-parts-img" }
+          { src: "images/roboboat/full-cad.png", label: "Full catamaran CAD model with sensor mounts and electronics enclosure", class: "modal-cad-img" },
+          { src: "images/roboboat/parts-list.png", label: "Complete list of all 3D modeled and printed components", class: "modal-parts-img" }
         ]
       },
       {
@@ -188,7 +188,8 @@ const projectDetails = {
           { icon: "fa-box-open", title: "Waterproof Box Interior", text: "Assembled the waterproof electrical box interior containing motor drivers, relays, and main computer." }
         ],
         images: [
-          { src: "roboboat-electrical.png", label: "System Wiring Diagram & Waterproof Box Interior Enclosure", class: "modal-wiring-img" }
+          { src: "images/roboboat/electrical-diagram.png", label: "Complete electrical system wiring diagram", class: "modal-wiring-img" },
+          { src: "images/roboboat/electrical-box.png", label: "Inside view of the waterproof electrical enclosure", class: "modal-enclosure-img" }
         ]
       },
       {
@@ -200,8 +201,8 @@ const projectDetails = {
           { icon: "fa-gauge-high", title: "Safety Configs & Failsafes", text: "Used QGroundControl to configure failsafe triggers, leak sensor alerts, and automated geofence aborts." }
         ],
         images: [
-          { src: "roboboat-software-qgc.png", label: "Safety and Parameter Configs in QGroundControl", class: "modal-soft-img" },
-          { src: "robosub-software.png", label: "ROS2 Autonomous Navigation & Station Keeping Test Plans", class: "modal-safety-img" }
+          { src: "images/roboboat/software-pipeline.png", label: "YOLOv8 obstacle detection pipeline running on the Oak-D camera", class: "modal-soft-img" },
+          { src: "images/roboboat/mission-script.png", label: "Mission script state machine — task states and transitions", class: "modal-safety-img" }
         ]
       }
     ]
@@ -219,7 +220,8 @@ const projectDetails = {
           { icon: "fa-folder-open", title: "Strategic Navigation", text: "Created a master document covering all parts, tools, tasks, and deadlines to onboard new members rapidly." }
         ],
         images: [
-          { src: "robosub-card.png", label: "Team Inspiration next to the pool with RoboSub AUVs", class: "modal-parts-img" }
+          { src: "images/new-project/main.jpg", label: "Team Inspiration poolside with the RoboSub AUVs", class: "modal-parts-img" },
+          { src: "images/new-project/main-2.jpg", label: "GRAEY and ONYX autonomous underwater vehicles", class: "modal-parts-img" }
         ]
       },
       {
@@ -231,7 +233,9 @@ const projectDetails = {
           { icon: "fa-clipboard-list", title: "Deep Bill-of-Materials (BOM)", text: "Complete parts inventory cataloging component weights, costs, supplier links, and shelf locations." }
         ],
         images: [
-          { src: "robosub-mechanical.png", label: "ONYX AUV Configuration Mechanical layout / Lab floor plan", class: "modal-cad-img" }
+          { src: "images/new-project/mech-1.png", label: "ONYX AUV configuration — torpedo, gripper, hydrophones, DVL, and holonomic motor layout", class: "modal-cad-img" },
+          { src: "images/new-project/mech-2.png", label: "Lab floor plan — layout of all equipment, wire racks, and vehicle storage", class: "modal-cad-img" },
+          { src: "images/new-project/mech-3.png", label: "Deep BOM — full parts list with component codes, costs, spare locations, and supplier links", class: "modal-parts-img" }
         ]
       },
       {
@@ -242,7 +246,8 @@ const projectDetails = {
           { icon: "fa-bolt", title: "Dual System Diagrams", text: "Maintained wiring schematics mapping batteries, power regulators, thrusters, and onboard telemetry." }
         ],
         images: [
-          { src: "robosub-electrical.png", label: "GRAEY and ONYX Autonomous System Wiring Diagram", class: "modal-wiring-img" }
+          { src: "images/new-project/elec-1.png", label: "GRAEY 2025 — full electrical wiring and power distribution diagram", class: "modal-wiring-img" },
+          { src: "images/new-project/elec-2.png", label: "ONYX — complete system wiring diagram with power and data routing", class: "modal-wiring-img" }
         ]
       },
       {
@@ -254,7 +259,8 @@ const projectDetails = {
           { icon: "fa-shield-halved", title: "QGroundControl Safety Setup", text: "Configured leak detection warnings, battery voltage failsafes, and automated motor arming checks." }
         ],
         images: [
-          { src: "robosub-software.png", label: "QGroundControl Safety configuration and test checklists", class: "modal-soft-img" }
+          { src: "images/new-project/soft-1.png", label: "QGroundControl safety configuration — failsafes, leak detection, and arming checks", class: "modal-soft-img" },
+          { src: "images/new-project/soft-2.png", label: "Station keeping test plan", class: "modal-safety-img" }
         ]
       }
     ]
@@ -272,7 +278,10 @@ const projectDetails = {
           { icon: "fa-shield-heart", title: "CAD & Structural Weld", text: "Engineered hard carbon-steel armor plate mounts in SolidWorks to absorb high-impact mechanical stress." }
         ],
         images: [
-          { src: "battlebot-details.png", label: "BattleBot Mechanical CAD Design & System Diagrams Details", class: "modal-wiring-img" }
+          { src: "images/shpe/battlebot-2.jpg", label: "CAD design in Fusion 360", class: "modal-cad-img" },
+          { src: "images/shpe/battlebot-3.png", label: "Electrical wiring diagram", class: "modal-wiring-img" },
+          { src: "images/shpe/battlebot-1.png", label: "Parts & weight registry — a master document of every part, the reasoning behind each selection, and tasks and deadlines to help new members through their first robotics competition", class: "modal-parts-img" },
+          { src: "images/shpe/beetleweight.png", label: "CSUN Beetleweight Combat Robot Competition rules", class: "modal-parts-img" }
         ]
       }
     ]
@@ -290,7 +299,9 @@ const projectDetails = {
           { icon: "fa-bolt", title: "Automatic Limits", text: "Identifies elastic vs plastic deformation thresholds, ultimate strain limits, and specimen fracture points." }
         ],
         images: [
-          { src: "tensile-tester-details.png", label: "MATLAB Tensile Testing App Stress-Strain Curve Analyzer", class: "modal-matlab-img" }
+          { src: "images/projects/tensile-tester-1.png", label: "Tensile testing machine and data acquisition station", class: "modal-matlab-img" },
+          { src: "images/projects/tensile-tester-2.png", label: "Specimen necking before fracture", class: "modal-matlab-img" },
+          { src: "images/projects/tensile-tester-3.png", label: "MATLAB elongation and stress-strain curves with ultimate stress and fracture point", class: "modal-matlab-img" }
         ]
       }
     ]
@@ -302,14 +313,17 @@ const projectDetails = {
       {
         id: "overview",
         name: "Overview",
-        content: "In Early 2025, I stepped into the role of Director of Membership and Outreach for the San Diego Mesa College Engineering Club, focusing on expanding student engagement through hands-on projects, competitions, and community-building events. Alongside participation in the Beetleweight BattleBot and RoboBoat competitions, I helped organize technical workshops ranging from Python and Arduino-based projects to robotic arm and bridge design challenges.",
+        content: "In Early 2025, I stepped into the role of President of the San Diego Mesa College Engineering Club, serving a one-year term focused on expanding student engagement through hands-on projects, competitions, and community-building events. Alongside participation in the Beetleweight BattleBot and RoboBoat competitions, I helped organize technical workshops ranging from Python and Arduino-based projects to robotic arm and bridge design challenges.",
         highlights: [
           { icon: "fa-users", title: "Student Community Building", text: "Collaborated with SASE, SAE, and SHPE societies to organize student panels, guest lecturers, and networking mixers." },
           { icon: "fa-graduation-cap", title: "Technical Tutoring", text: "Assembled academic study panels and support groups in calculus, physics, and computer science." }
         ],
         images: [
-          { src: "shpe-leadership.png", label: "Troy Prado Jr. with SHPE Chapter members and officers", class: "modal-parts-img" },
-          { src: "shpe-flyers.png", label: "SHPE & Mesa Engineering Club Workshop Flyers Collection", class: "modal-cad-img" }
+          { src: "images/shpe-leadership.jpg", label: "Troy Prado Jr. with SHPE Chapter members and officers", class: "modal-parts-img" },
+          { src: "images/shpe/engineering-group.jpg", label: "SD Mesa Engineering Club members", class: "modal-parts-img" },
+          { src: "images/shpe/workshop.png", label: "Engineering Club Workshop #1 — build a 1-axis robot arm", class: "modal-cad-img" },
+          { src: "images/shpe/engineer-panel.png", label: "SHPE Engineer Panel with SWE and the Mesa Engineering Club", class: "modal-cad-img" },
+          { src: "images/shpe/robosub.png", label: "RoboSub 2026 recruitment flyer", class: "modal-cad-img" }
         ]
       }
     ]
@@ -381,7 +395,7 @@ const projectDetails = {
           { icon: "fa-user-check", title: "Wrist Biomechanics", text: "Adjustable angle handlebars facilitate a natural, comfortable pronated/supinated motion line." }
         ],
         images: [
-          { src: "row_machine.jpg", label: "Chest-Supported Row Machine", class: "modal-parts-img" }
+          { src: "images/backrow-machine.jpg", label: "Chest-Supported Row Machine", class: "modal-parts-img" }
         ]
       }
     ]
@@ -422,21 +436,6 @@ const projectDetails = {
       }
     ]
   },
-  shirt: {
-    title: "Custom Hand-Sewn Stripe Dress Shirt",
-    category: "Creative Projects",
-    tabs: [
-      {
-        id: "overview",
-        name: "Overview",
-        content: "Custom-modified dress shirt featuring intricate hand-sewn graphic embroidery on the chest and shoulder, showcasing a blend of formal-wear with contemporary streetwear elements.",
-        highlights: [
-          { icon: "fa-scissors", title: "Bespoke Hand Embroidery", text: "Crafted hours of detailed manual embroidery on vintage formal striped cotton garments." },
-          { icon: "fa-palette", title: "Eco-Aesthetic Fusion", text: "Combined corporate aesthetics with sustainable street fashion motifs." }
-        ]
-      }
-    ]
-  },
   hoodie: {
     title: "Sustainable Fashion Upcycled Hoodie",
     category: "Creative Projects",
@@ -450,7 +449,7 @@ const projectDetails = {
           { icon: "fa-recycle", title: "Waste Stream Reduction", text: "Showcases how post-consumer textiles can be transformed into premium bespoke winter garments." }
             ],
     images: [
-      { src: "hoodie.jpg", label: "Upcycled Hoodie", class: "modal-parts-img" }
+      { src: "Fur%20hoodie.webp", label: "Upcycled Hoodie", class: "modal-parts-img" }
     ]
       }
     ]
@@ -468,7 +467,7 @@ const projectDetails = {
           { icon: "fa-palette", title: "Eco‑Aesthetic Fusion", text: "Combined corporate aesthetics with sustainable street fashion motifs." }
         ],
         images: [
-          { src: "shirt.jpg", label: "Upcycled Dress Shirt", class: "modal-parts-img" }
+          { src: "Dress%20shirt%20DIY.webp", label: "Upcycled Dress Shirt", class: "modal-parts-img" }
         ]
       }
     ]
@@ -480,7 +479,7 @@ const projectDetails = {
       {
         id: "overview",
         name: "Overview",
-        content: "Founded and engineered NablaNotes, an AI-powered STEM note-taking platform targeting community college students across San Diego. Architected and shipped the full product from concept to working beta using React, Vite, TanStack Start, and Supabase — including a real-time handwriting OCR pipeline powered by Gemini 2.5 Flash that converts handwritten equations into solved, graphed, and step-by-step explained results directly within the note canvas.",
+        content: "Founded and engineered NablaNotes, an AI-powered STEM note-taking platform targeting community college students across San Diego. Architected and shipped the full product from concept to working beta using React, Vite, TanStack Start, and Supabase — including a real-time handwriting OCR pipeline powered by Gemini 2.5 Flash that converts handwritten equations into solved, graphed, and step-by-step explained results directly within the note canvas. NablaNotes is live on iPad through an open TestFlight beta at <a href='https://nablanotes.com' target='_blank' rel='noopener'>nablanotes.com</a>.",
         highlights: [
           { icon: "fa-layer-group", title: "Multi-Layer Local-First Persistence", text: "Built a localStorage → IndexedDB → Supabase cloud sync architecture ensuring zero data loss across sessions and devices." },
           { icon: "fa-robot", title: "AI Tutor System", text: "Designed contextual equation lookup, YouTube video recommendations, and Socratic chat — all grounded in the student's actual handwritten work via canvas region capture." },
@@ -488,6 +487,29 @@ const projectDetails = {
           { icon: "fa-puzzle-piece", title: "Chrome Extension", text: "Built and published a companion Chrome extension enabling cross-platform screenshot capture from any homework platform directly into the note canvas." },
           { icon: "fa-credit-card", title: "Stripe Subscription Infrastructure", text: "Implemented role-based feature gating, a promo code system for tracking student acquisition by institution, and full payment flows." },
           { icon: "fa-user-gear", title: "Sole Engineer — Full Stack", text: "Product, infrastructure, AI integrations, database schema, auth, payments, and Chrome extension — all solo." }
+        ],
+        images: [
+          { src: "images/nablanotes/solve.webp", label: "Write it. Circle it. Solved. — handwriting in, every step out, right beside the problem", class: "modal-soft-img" }
+        ]
+      },
+      {
+        id: "features",
+        name: "Product Features",
+        content: "Fewer tabs, better work: everything a STEM student would open a browser for, on the page they're already writing on. Each feature reads the student's own handwriting, so nothing gets retyped.",
+        highlights: [
+          { icon: "fa-calculator", title: "Handwritten Equation Solving", text: "Circle any handwritten equation and get the solution with every step shown beside the problem." },
+          { icon: "fa-robot", title: "Context-Aware AI Tutor", text: "The tutor already sees the equation on the page — no copying problems into a chat window or explaining what class you're in." },
+          { icon: "fa-chart-line", title: "2D & 3D Graphing", text: "Graph handwritten functions in 2D and 3D, with adjustable axis ranges, tick spacing, and one-tap zoom reset." },
+          { icon: "fa-table-cells", title: "Linear Algebra From Handwriting", text: "Row-reduce a handwritten matrix to RREF with determinant and inverse a tap away; compute dot and cross products of handwritten vectors." },
+          { icon: "fa-laptop", title: "Laptop-to-iPad Capture", text: "Capture any homework page with the Chrome extension and it lands on the iPad, ready to annotate." }
+        ],
+        images: [
+          { src: "images/nablanotes/tutor.webp", label: "AI tutor answering questions about the student's handwritten integral", class: "modal-soft-img" },
+          { src: "images/nablanotes/graphing.webp", label: "Graphing a handwritten function with Graph Settings", class: "modal-soft-img" },
+          { src: "images/nablanotes/3d-graphing-still.webp", label: "3D surface graphing", class: "modal-soft-img" },
+          { src: "images/nablanotes/matrix.webp", label: "Handwritten matrix reduced to RREF", class: "modal-soft-img" },
+          { src: "images/nablanotes/vectors.webp", label: "Dot and cross products from handwritten vectors", class: "modal-soft-img" },
+          { src: "images/nablanotes/cross-device.webp", label: "Homework page captured on a laptop, annotated on the iPad", class: "modal-soft-img" }
         ]
       },
       {
@@ -498,7 +520,7 @@ const projectDetails = {
           { icon: "fa-code", title: "Frontend", text: "React · Vite · TanStack Start — component-driven canvas architecture with GPU-composited dual-layer rendering." },
           { icon: "fa-database", title: "Backend & Database", text: "Supabase · PostgreSQL — real-time subscriptions, row-level security, and cloud sync layered over local-first storage." },
           { icon: "fa-wand-magic-sparkles", title: "AI & OCR", text: "Gemini 2.5 Flash — handwriting OCR pipeline converting equations to solved, graphed, and step-by-step explained results." },
-          { icon: "fa-mobile-screen", title: "Mobile & Extensions", text: "Capacitor (iOS, incoming) · Chrome Extensions API — cross-platform capture and native deployment." },
+          { icon: "fa-mobile-screen", title: "Mobile & Extensions", text: "Capacitor (iPad app, live in TestFlight beta) · Chrome Extensions API — cross-platform capture and native deployment." },
           { icon: "fa-dollar-sign", title: "Payments & Auth", text: "Stripe · Supabase Auth — subscription tiers, promo codes, and role-based feature gating." },
           { icon: "fa-flask", title: "Utilities", text: "Python · SymPy — server-side symbolic math processing for equation validation and step generation." }
         ]
@@ -546,10 +568,7 @@ const projectDetails = {
           { icon: "fa-camera", title: "Computer Vision Harness", text: "Sensor integration harness carrying Raspberry Pi 4, Arduino Uno, LiDAR sensor, and camera gear." }
         ],
         images: [
-          { src: "monkey_bot.jpg", label: "Monkey Bot – Autonomous RC Car", class: "modal-parts-img" },
-{ src: "monkey_bot_2.jpg", label: "Monkey Bot – Sensor Suite Detail", class: "modal-parts-img" },
-{ src: "monkey_bot_3.jpg", label: "Monkey Bot – Chassis Overview", class: "modal-parts-img" },
-{ src: "monkey_bot_4.jpg", label: "Monkey Bot – Final Build", class: "modal-parts-img" }
+          { src: "images/monkeybot/main-action.jpg", label: "Monkey Bot navigating the red/blue obstacle course autonomously", class: "modal-parts-img" }
         ]
       },
       {
@@ -558,6 +577,9 @@ const projectDetails = {
         content: "Designed and assembled a custom RC-based autonomous vehicle using 3D-modeled and 3D-printed components. The mechanical build focused on durability and modularity, using heat-set inserts for secure fastening and careful wire routing for reliability. Multiple camera placements and mounts were tested to determine the most effective configuration for vision-based navigation and obstacle detection.",
         highlights: [
           { icon: "fa-cubes", title: "Modular Fasteners", text: "Used heat-set brass threaded inserts to support modular accessory mounts." }
+        ],
+        images: [
+          { src: "images/monkeybot/mech.png", label: "3D CAD model of the custom chassis and electronics mounts", class: "modal-cad-img" }
         ]
       },
       {
@@ -566,6 +588,17 @@ const projectDetails = {
         content: "Integrated an Arduino and Raspberry Pi to manage sensors, motors, and control logic. Gained hands-on experience with electrical wiring, power distribution, and current limits to prevent short circuits or overheating. Used SSH and VS Code to remotely run programs, troubleshoot issues, and fine-tune hardware-software interactions through repeated testing until the system reliably completed the obstacle course.",
         highlights: [
           { icon: "fa-microchip", title: "Dual Processor Logic", text: "Arduino acts as motor controller (PWM limits), while Raspberry Pi processes sensory stack inputs." }
+        ],
+        images: [
+          { src: "images/monkeybot/elec.png", label: "Wiring diagram — battery, Raspberry Pi, Arduino, and motor drivers", class: "modal-wiring-img" }
+        ]
+      },
+      {
+        id: "software",
+        name: "Software",
+        content: "Developed autonomous navigation software using VS Code in collaboration with a small team. Leveraging libraries such as NumPy and OpenCV, the system was first implemented in manual (remote-controlled) mode and later transitioned to autonomous behaviors, including predefined paths like circles and squares. Vision algorithms were created to detect red and blue obstacles, calculate their center positions, and dynamically adjust steering so the vehicle could successfully navigate through the course.",
+        images: [
+          { src: "images/monkeybot/soft.jpg", label: "Live OpenCV red/blue obstacle detection during testing", class: "modal-soft-img" }
         ]
       }
     ]
@@ -691,5 +724,274 @@ if (projectModal) {
     if (e.key === 'Escape' && projectModal.classList.contains('active')) {
       closeModal();
     }
+  });
+}
+
+
+// ==========================================
+// 6. Perspective Tunnel Intro
+// ==========================================
+// Vanilla port of 21st.dev's PerspectiveTunnelHero. Driven by normal page
+// scroll (sticky stage) instead of hijacking the wheel, so visitors can always
+// scroll past it and it works on touch. Clicking a card opens that project.
+const tunnel = document.getElementById('tunnel');
+
+if (tunnel) {
+  const TUNNEL_ITEMS = [
+    { src: "boat-in-water.jpg", title: "RoboBoat 2026", id: "roboboat" },
+    { src: "images/new-project/main-2.jpg", title: "RoboSub AUVs", id: "robosub" },
+    { src: "images/nablanotes/solve.webp", title: "NablaNotes", id: "nablanotes" },
+    { src: "images/monkeybot/main-action.jpg", title: "Monkey Bot", id: "monkeybot" },
+    { src: "trap_bar.jpg", title: "Custom Trap Bar", id: "trapbar" },
+    { src: "images/shpe/battlebot-2.jpg", title: "BattleBot CAD", id: "battlebot" },
+    { src: "Fur%20hoodie.webp", title: "Upcycled Hoodie", id: "hoodie" },
+    { src: "images/roboboat/electrical-box.png", title: "RoboBoat Electrical", id: "roboboat" },
+    { src: "images/projects/tensile-tester-1.png", title: "Tensile Tester", id: "tensile" },
+    { src: "sled.jpg", title: "Training Sled", id: "sled" },
+    { src: "images/roboboat/full-cad.png", title: "RoboBoat CAD", id: "roboboat" },
+    { src: "images/shpe-leadership.jpg", title: "Engineering Club", id: "leadership" },
+    { src: "Dress%20shirt%20DIY.webp", title: "Upcycled Shirt", id: "shirt" },
+    { src: "dumbbell_rack.jpg", title: "Dumbbell Rack", id: "dumbrack" }
+  ];
+
+  const space = document.getElementById('tunnelSpace');
+  const title = document.getElementById('tunnelTitle');
+  const prompt = document.getElementById('tunnelPrompt');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const total = TUNNEL_ITEMS.length;
+  const STAGGER_SPAN = 0.55;
+
+  // Piecewise-linear map of x through (xs -> ys), clamped at the ends.
+  const mapRange = (x, xs, ys) => {
+    if (x <= xs[0]) return ys[0];
+    for (let i = 1; i < xs.length; i++) {
+      if (x <= xs[i]) return ys[i - 1] + (ys[i] - ys[i - 1]) * (x - xs[i - 1]) / (xs[i] - xs[i - 1]);
+    }
+    return ys[ys.length - 1];
+  };
+
+  // Golden-angle placement around the tunnel, same as the original component.
+  const cards = TUNNEL_ITEMS.map((item, i) => {
+    const angle = i * 137.5 * (Math.PI / 180);
+    const el = document.createElement('button');
+    el.className = 'tunnel-card';
+    el.setAttribute('aria-label', `Open ${item.title}`);
+    el.innerHTML = `<img src="${item.src}" alt="" draggable="false" decoding="async" /><span>${item.title}</span>`;
+    el.addEventListener('click', () => {
+      document.querySelector(`.project-card[data-id="${item.id}"] .open-details-btn`)?.click();
+    });
+    space.appendChild(el);
+    return {
+      el,
+      cos: Math.cos(angle),
+      sin: Math.sin(angle),
+      rx: 0.28 + (i % 3) * 0.08,
+      ry: 0.26 + (i % 2) * 0.09,
+      rotZ: (i % 2 === 0 ? 1 : -1) * (3 + (i % 5) * 2),
+      start: (i / total) * (1 - STAGGER_SPAN)
+    };
+  });
+
+  let stage = {};
+  const measure = () => {
+    const w = window.innerWidth, h = window.innerHeight, isMobile = w < 768;
+    stage = { w, h, isMobile };
+    tunnel.querySelector('.tunnel-stage').style.perspective = isMobile ? '900px' : '1200px';
+    const cardWidth = isMobile ? Math.max(130, Math.min(180, w * 0.38)) : Math.max(180, Math.min(270, w * 0.18));
+    cards.forEach(c => { c.el.style.width = `${cardWidth}px`; });
+  };
+  measure();
+  window.addEventListener('resize', measure);
+
+  // Mouse parallax target in [-1, 1]
+  let targetX = 0, targetY = 0, px = 0, py = 0, progress = 0;
+  if (!reduceMotion) {
+    window.addEventListener('pointermove', (e) => {
+      targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+      targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+    }, { passive: true });
+  }
+
+  const frame = () => {
+    const rect = tunnel.getBoundingClientRect();
+    // Only animate while the intro is on screen.
+    if (rect.bottom > 0) {
+      const target = Math.min(1, Math.max(0, -rect.top / (rect.height - window.innerHeight)));
+      const ease = reduceMotion ? 1 : 0.12;
+      progress += (target - progress) * ease;
+      px += (targetX - px) * 0.08;
+      py += (targetY - py) * 0.08;
+
+      const farZ = stage.isMobile ? -1200 : -1700;
+      const nearZ = stage.isMobile ? 350 : 500;
+      const pan = stage.isMobile ? 20 : 45;
+
+      cards.forEach(c => {
+        const local = Math.min(1, Math.max(0, (progress - c.start) / STAGGER_SPAN));
+        const z = farZ + (nearZ - farZ) * local;
+        const x = c.cos * stage.w * c.rx - px * pan;
+        const y = c.sin * stage.h * c.ry - py * pan;
+        const opacity = mapRange(local, [0, 0.18, 0.82, 0.98], [0, 1, 1, 0]);
+        c.el.style.transform = `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), ${z}px) rotateZ(${c.rotZ}deg)`;
+        c.el.style.opacity = opacity;
+        c.el.style.visibility = opacity < 0.02 ? 'hidden' : 'visible';
+      });
+
+      title.style.transform = `scale(${mapRange(progress, [0, 0.5, 1], [0.85, 1, 1.35])})`;
+      title.style.opacity = mapRange(progress, [0, 0.85, 1], [1, 1, 0]);
+      prompt.style.opacity = mapRange(progress, [0, 0.12], [1, 0]);
+    }
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+}
+
+
+// ==========================================
+// 7. Hero "Ink Garden" ASCII Dither Art
+// ==========================================
+// Canvas2D take on 21st.dev's Ink Garden preset (renderMode "dither",
+// cellSize 9, contrast 158%, no background, pulse animation). Each 9px cell
+// samples the fern photo in full color; cells brighter than an ordered
+// (Bayer 4x4) threshold draw a square. On top of the preset: a ripple pulse
+// radiating from the fern's curl, a cursor "flashlight" that lights up the
+// garden, parallax drift, and a bloom layer.
+const heroAscii = document.getElementById('heroAscii');
+
+if (heroAscii) {
+  const CELL = 9;
+  const CONTRAST = 1.58;
+  const SATURATION = 1.15;
+  const MOSS = [38, 58, 24];          // what the dark parts of the garden reveal under the cursor
+  const PULSE_AMOUNT = 0.6 * 0.25;   // animIntensity 60
+  const PULSE_HZ = 0.5;              // animSpeed 100
+  const RIPPLE_WAVELENGTH = 90;      // px between ripple crests
+  const LIGHT_RADIUS = 170;          // cursor flashlight radius, px
+  const LIGHT_BOOST = 0.85;
+  const FERN = { sx: 470, sy: 0, sw: 720, sh: 864, cx: 790, cy: 190 }; // crop + curl center in the source photo
+  const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map(v => (v + 0.5) / 16);
+
+  const hero = heroAscii.closest('.hero-section');
+  const glow = document.getElementById('heroAsciiGlow');
+  const ctx = heroAscii.getContext('2d');
+  const gctx = glow.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const img = new Image();
+  let cells = [], width = 0, height = 0, visible = true;
+  const pointer = { x: 0, y: 0, tx: 0, ty: 0, strength: 0, target: 0 };
+
+  const sample = () => {
+    const rect = heroAscii.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = rect.width;
+    height = rect.height;
+    for (const c of [heroAscii, glow]) {
+      c.width = Math.round(width * dpr);
+      c.height = Math.round(height * dpr);
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const cols = Math.ceil(width / CELL), rows = Math.ceil(height / CELL);
+
+    // One pixel per cell: the browser's downscale averages each cell's color.
+    // The fern fills the full height, anchored right (centered on mobile).
+    const small = document.createElement('canvas');
+    small.width = cols;
+    small.height = rows;
+    const sctx = small.getContext('2d', { willReadFrequently: true });
+    sctx.imageSmoothingQuality = 'high';
+    const scale = rows / FERN.sh;
+    const dx = window.innerWidth > 992 ? cols - FERN.sw * scale : (cols - FERN.sw * scale) / 2;
+    sctx.drawImage(img, FERN.sx, FERN.sy, FERN.sw, FERN.sh, dx, 0, FERN.sw * scale, rows);
+    const data = sctx.getImageData(0, 0, cols, rows).data;
+    const curlX = (dx + (FERN.cx - FERN.sx) * scale) * CELL, curlY = FERN.cy * scale * CELL;
+
+    const raw = [];
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const i = (y * cols + x) * 4;
+        const rgb = [data[i], data[i + 1], data[i + 2]];
+        const lum = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255;
+        raw.push({ x: x * CELL, y: y * CELL, lum, rgb, t: BAYER[(y % 4) * 4 + (x % 4)] });
+      }
+    }
+
+    // The fern is dark on black: stretch brightness (95th percentile -> 1)
+    // before the 158% contrast, and lift its true colors the same way.
+    const bright = raw.map(c => c.lum).filter(l => l > 0.04).sort((a, b) => a - b);
+    const level = bright[Math.floor(bright.length * 0.95)] || 1;
+    cells = raw.map(c => {
+      const stretched = Math.min(1, c.lum / level);
+      const lift = Math.min(1 / level, 225 / Math.max(1, ...c.rgb));
+      const lifted = c.rgb.map(v => v * lift);
+      const gray = (lifted[0] + lifted[1] + lifted[2]) / 3;
+      // dim cells lean toward deep moss so the flashlight reveals a garden, not grey noise
+      const color = lifted.map((v, k) => Math.round(Math.min(255, Math.max(0,
+        (gray + (v - gray) * SATURATION) * stretched + MOSS[k] * (1 - stretched)))));
+      const cx = c.x + CELL / 2, cy = c.y + CELL / 2;
+      return {
+        x: c.x, y: c.y, cx, cy, t: c.t,
+        lum: Math.min(1, Math.max(0, (stretched - 0.5) * CONTRAST + 0.5)),
+        phase: Math.hypot(cx - curlX, cy - curlY) / RIPPLE_WAVELENGTH,
+        color: `rgb(${color.join(',')})`
+      };
+    });
+  };
+
+  const draw = (time) => {
+    const t = time / 1000 * Math.PI * 2 * PULSE_HZ;
+    pointer.x += (pointer.tx - pointer.x) * 0.15;
+    pointer.y += (pointer.ty - pointer.y) * 0.15;
+    pointer.strength += (pointer.target - pointer.strength) * 0.08;
+
+    ctx.clearRect(0, 0, width, height);
+    for (const c of cells) {
+      let v = c.lum + (reduceMotion ? 0 : Math.sin(t - c.phase) * PULSE_AMOUNT);
+      if (pointer.strength > 0.01) {
+        const d = Math.hypot(c.cx - pointer.x, c.cy - pointer.y);
+        if (d < LIGHT_RADIUS) {
+          const near = 1 - d / LIGHT_RADIUS;
+          v += near * near * LIGHT_BOOST * pointer.strength;
+        }
+      }
+      if (v > c.t) {
+        ctx.fillStyle = c.color;
+        ctx.fillRect(c.x, c.y, CELL - 1, CELL - 1);
+      }
+    }
+    gctx.setTransform(1, 0, 0, 1, 0, 0);
+    gctx.clearRect(0, 0, glow.width, glow.height);
+    gctx.drawImage(heroAscii, 0, 0);
+
+    // parallax: the art drifts opposite the cursor
+    const nx = pointer.strength * ((pointer.x / width) - 0.5), ny = pointer.strength * ((pointer.y / height) - 0.5);
+    const shift = `translate3d(${(-nx * 12).toFixed(2)}px, ${(-ny * 12).toFixed(2)}px, 0)`;
+    heroAscii.style.transform = glow.style.transform = shift;
+  };
+
+  const loop = (time) => {
+    if (visible) draw(time);
+    requestAnimationFrame(loop);
+  };
+
+  img.onload = () => {
+    sample();
+    if (reduceMotion) { draw(0); return; }
+    hero.addEventListener('pointermove', (e) => {
+      const r = heroAscii.getBoundingClientRect();
+      pointer.tx = e.clientX - r.left;
+      pointer.ty = e.clientY - r.top;
+      if (pointer.target === 0) { pointer.x = pointer.tx; pointer.y = pointer.ty; }
+      pointer.target = 1;
+    }, { passive: true });
+    hero.addEventListener('pointerleave', () => { pointer.target = 0; });
+    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }).observe(hero);
+    requestAnimationFrame(loop);
+  };
+  img.src = 'images/ink-garden.webp';
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { if (img.complete) { sample(); draw(performance.now()); } }, 150);
   });
 }
