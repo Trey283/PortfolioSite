@@ -151,35 +151,126 @@ filterTabs.forEach(tab => {
     applyFilter(tab.dataset.filter);
   });
 });
-// Featured cards: crossfade photos every 4.5s with clickable dots; pauses on hover.
-document.querySelectorAll('.featured-slides').forEach((wrap, w) => {
-  const slides = [...wrap.querySelectorAll('.featured-slide')];
-  if (slides.length < 2) return;
-  const dots = document.createElement('div');
-  dots.className = 'featured-dots';
-  let i = 0;
-  const show = n => {
-    slides[i].classList.remove('active');
-    dots.children[i].classList.remove('active');
-    i = (n + slides.length) % slides.length;
-    slides[i].classList.add('active');
-    dots.children[i].classList.add('active');
-  };
-  slides.forEach((s, n) => {
-    const dot = document.createElement('button');
-    dot.setAttribute('aria-label', `Show photo ${n + 1} of ${slides.length}`);
-    if (n === 0) dot.classList.add('active');
-    dot.addEventListener('click', e => { e.stopPropagation(); show(n); });
-    dots.appendChild(dot);
+// Featured reel: vanilla port of 21st.dev "Tilted Grid Hero". One row of
+// photos streams right to left round the inside of a cylinder: flat in the
+// centre, ends curling toward you and fading out. A box can't bend, so each
+// tile is SLICES vertical strips, each a flat facet turned its own few
+// degrees; the tile is one CSS animation, so its strips never drift apart.
+// JS only sizes the loop on resize and swaps a tile's photo as it wraps
+// (out of sight). Reduced motion freezes it as a still.
+(() => {
+  const hero = document.getElementById('featuredReel');
+  if (!hero) return;
+  const band = hero.querySelector('.tgh-band');
+  const IMAGES = [
+    'images/featured/roboboat-crew-wide.jpg',
+    'images/featured/robosub-team.jpg',
+    'images/featured/shpe-mesa.jpg'
+  ];
+  const SLICES = 16;     // strips per tile; fewer shows corners on the edges
+  const CAMERA = 1.6;    // camera distance as a multiple of the radius
+  const MAX_WIDTH = 55;  // tile never wider than this % of the hero (phones)
+  const speed = 4;       // seconds to advance one tile
+  const tileHeight = 32; // % of hero height
+  const aspect = 16 / 9, gap = 6, axis = 57, fade = 12;
+  const bend = 80 * Math.PI / 180; // how far round the arc the frame's edge sits
+
+  const deg = rad => rad * 180 / Math.PI;
+  const round = n => +n.toFixed(4);
+  // Radius (share of width) that puts the frame's edge `bend` round the arc.
+  const arc = b => (CAMERA - 1 + Math.cos(b)) / (2 * CAMERA * Math.sin(b));
+  const r = 100 * arc(bend);
+  const radius = `${+r.toFixed(3)}cqw`;
+  const share = aspect / SLICES;
+  // Every length is a multiple of the tile height.
+  const u = n => `calc(${round(n)} * min(${tileHeight}cqh, ${round(MAX_WIDTH / aspect)}cqw))`;
+  // Out to the axis, round it, back in.
+  const turn = d => `translateZ(${radius}) rotateY(${round(d)}deg) translateZ(-${radius})`;
+
+  function measure(width, height) {
+    const h = Math.min(tileHeight / 100 * height, MAX_WIDTH / 100 * width / aspect);
+    const rad = width * arc(bend);
+    if (!(h > 0) || !(rad > 0)) return null;
+    const unit = deg(h / rad);
+    const pitch = (aspect + gap / 100) * unit;
+    const limit = deg(bend) + aspect * unit / 2; // past this a tile is fully off-screen
+    const columns = Math.min(60, Math.max(2, Math.ceil(2 * limit / pitch)));
+    const sweep = round(columns * pitch / 2);
+    return { columns, sweep, unit: round(unit), limit: round(Math.min(sweep, limit)) };
+  }
+
+  IMAGES.forEach(src => { new Image().src = src; }); // tiles swap just before re-entering view
+  const style = document.createElement('style');
+  document.head.appendChild(style);
+  const mask = `linear-gradient(90deg,transparent,#000 ${fade}%,#000 ${100 - fade}%,transparent)`;
+  Object.assign(band.style, {
+    perspective: `${+(r * CAMERA).toFixed(3)}cqw`,
+    perspectiveOrigin: `50% ${axis}%`,
+    maskImage: mask,
+    webkitMaskImage: mask
   });
-  wrap.appendChild(dots);
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let paused = false;
-  wrap.addEventListener('mouseenter', () => paused = true);
-  wrap.addEventListener('mouseleave', () => paused = false);
-  // stagger start so the three cards don't flip in unison
-  setTimeout(() => setInterval(() => { if (!paused && !document.hidden) show(i + 1); }, 4500), w * 1500);
-});
+
+  let last = '';
+  function build({ width, height }) {
+    const m = measure(width, height);
+    if (!m) return;
+    const { columns, sweep, unit, limit } = m;
+    const key = `${columns}|${sweep}|${unit}`;
+    if (key === last) return;
+    last = key;
+
+    const hide = round((sweep - limit) / (2 * sweep || 1) * 100);
+    style.textContent =
+      `@keyframes tgh-orbit{from{transform:${turn(-sweep)}}to{transform:${turn(sweep)}}` +
+      `0%,${hide}%,${100 - hide}%,100%{visibility:hidden}` +
+      `${hide + 0.001}%,${100 - hide - 0.001}%{visibility:visible}}`;
+
+    const duration = columns * speed;
+    const tiles = [];
+    for (let t = 0; t < columns; t++) {
+      const first = columns - 1 - t; // tiles numbered in the order they come on
+      const tile = document.createElement('div');
+      tile.className = 'tgh-tile';
+      Object.assign(tile.style, {
+        left: `calc(50% - ${u(aspect / 2)})`,
+        top: `calc(${axis}% - ${u(0.5)})`,
+        width: u(aspect),
+        height: u(1),
+        animation: `tgh-orbit ${duration}s linear ${-t * speed}s infinite`
+      });
+      const imgs = [];
+      for (let k = 0; k < SLICES; k++) {
+        const slice = document.createElement('div');
+        slice.className = 'tgh-slice';
+        Object.assign(slice.style, {
+          left: u((aspect - share) / 2),
+          // a pixel wider than its share so no hairline opens between facets
+          width: k === SLICES - 1 ? u(share) : `calc(${u(share)} + 1px)`,
+          height: u(1),
+          transform: turn((aspect / 2 - (k + 0.5) * share) * unit)
+        });
+        const img = document.createElement('img');
+        img.alt = '';
+        img.draggable = false;
+        img.src = IMAGES[first % IMAGES.length];
+        Object.assign(img.style, { left: u(-k * share), width: u(aspect), height: u(1) });
+        slice.appendChild(img);
+        imgs.push(img);
+        tile.appendChild(slice);
+      }
+      tile.addEventListener('animationiteration', e => {
+        const lap = Math.round(e.elapsedTime / duration); // counts missed laps too
+        const src = IMAGES[(lap * columns + first) % IMAGES.length];
+        imgs.forEach(img => { img.src = src; });
+      });
+      tiles.push(tile);
+    }
+    band.replaceChildren(...tiles);
+    band.classList.add('ready');
+  }
+
+  new ResizeObserver(([entry]) => build(entry.contentRect)).observe(hero);
+})();
 
 // 4. Subsystem Modal Detail Data Mapping
 // ==========================================
@@ -658,7 +749,7 @@ let currentProjectData = null;
 document.querySelectorAll('.open-details-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
-    const card = btn.closest('.project-card');
+    const card = btn.closest('[data-id]'); // a card, or a featured chip
     if (!card) return;
     
     const projectId = card.getAttribute('data-id');

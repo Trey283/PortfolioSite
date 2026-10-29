@@ -909,66 +909,139 @@ background-position: center top;
   margin-top: auto;
 }
 
-/* Featured cards: full-width, photo left, auto-rotating slides */
-.project-card.featured-card {
+/* Featured reel: curved photo row (script.js) with headline above, chips below */
+.project-card.featured-reel {
   grid-column: 1 / -1;
-  flex-direction: row;
+  position: relative;
+  height: clamp(460px, 62vw, 620px);
+  container-type: size; /* the band sizes itself in cqw/cqh */
+  justify-content: space-between;
+  background:
+    radial-gradient(ellipse at 50% 55%, var(--primary-alpha), transparent 70%),
+    var(--card-bg);
 }
 
-.featured-card .project-image-wrapper {
-  flex: 0 0 58%;
-  height: auto;
-  min-height: 380px;
-  background-color: var(--text-color);
+.project-card.featured-reel:hover {
+  transform: none;
 }
 
-.featured-slide {
+.tgh-band {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   opacity: 0;
-  transition: opacity 0.9s ease, transform 0.3s ease;
+  transition: opacity 0.5s ease; /* hidden until measured, so no wrong-size first paint */
 }
 
-.featured-slide.active {
+.tgh-band.ready {
   opacity: 1;
 }
 
-.featured-slide.contain {
-  object-fit: contain; /* wide banners and flyers show in full instead of cropping */
-}
-
-.featured-dots {
+.tgh-tile {
   position: absolute;
-  bottom: 0.9rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.45rem;
+  transform-style: preserve-3d;
+}
+
+.tgh-slice {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  background-color: var(--border-color);
+}
+
+.tgh-slice:first-child { border-radius: var(--radius-lg) 0 0 var(--radius-lg); }
+.tgh-slice:last-child { border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+
+.tgh-slice img {
+  position: absolute;
+  top: 0;
+  max-width: none;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tgh-tile { animation-play-state: paused !important; }
+}
+
+.featured-reel-top,
+.featured-reel-bottom {
+  position: relative;
   z-index: 1;
+  text-align: center;
+  padding: 2.25rem 1.5rem;
 }
 
-.featured-dots button {
-  width: 9px;
-  height: 9px;
-  padding: 0;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.35);
+.featured-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-bottom: 0.4rem;
+}
+
+.featured-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.25rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
+.featured-sub {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.featured-reel-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.featured-chip {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-color);
+  background-color: var(--popover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
   cursor: pointer;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: var(--transition-smooth);
 }
 
-.featured-dots button.active {
-  background: #fff;
+.featured-chip strong {
+  font-weight: 900;
+  color: var(--primary-color);
+  margin-right: 0.35rem;
+}
+
+.featured-chip:hover,
+.featured-chip:focus-visible {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-  .project-card.featured-card {
-    flex-direction: column;
+  /* stack room for the wrapped headline and chips around the band */
+  .project-card.featured-reel {
+    height: 620px;
   }
 
-  .featured-card .project-image-wrapper {
-    flex: none;
-    min-height: 240px;
+  .featured-reel-top,
+  .featured-reel-bottom {
+    padding: 1.75rem 1rem;
+  }
+
+  .featured-chip {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.85rem;
   }
 }
 

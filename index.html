@@ -190,61 +190,18 @@
         <!-- Project Grid -->
         <div class="project-grid" id="projectGrid">
 
-          <!-- Featured cards: shown only under the Featured tab; photos auto-rotate (script.js) -->
-          <div class="project-card featured-card" data-category="featured" data-id="roboboat">
-            <div class="project-image-wrapper featured-slides">
-              <img src="images/featured/roboboat-crew.jpg" alt="Team Inspiration RoboBoat 2026 crew holding the competition banner" class="project-card-image featured-slide contain active" />
-              <img src="boat-in-water.jpg" alt="The RoboBoat catamaran on the water" class="project-card-image featured-slide" loading="lazy" />
-              <img src="images/roboboat/awards.jpg" alt="Team Inspiration with RoboBoat 2026 awards" class="project-card-image featured-slide" loading="lazy" />
-              <img src="images/roboboat/full-cad.png" alt="Full catamaran CAD model" class="project-card-image featured-slide" loading="lazy" />
+          <!-- Featured reel: photos curve round a cylinder (vanilla port of 21st.dev Tilted Grid Hero, script.js) -->
+          <div class="project-card featured-reel" data-category="featured" id="featuredReel">
+            <div class="tgh-band" aria-hidden="true"></div>
+            <div class="featured-reel-top">
+              <p class="featured-kicker">Featured</p>
+              <h3 class="featured-headline">SHPE President</h3>
+              <p class="featured-sub">San Diego Mesa College &middot; 1 yr Director of Outreach &amp; Membership &rarr; 1 yr President</p>
             </div>
-            <div class="project-card-body">
-              <span class="project-card-badge">Featured / RoboBoat 2026</span>
-              <h3>RoboBoat 2026 — Team Inspiration</h3>
-              <p class="project-card-desc">Mechanical crew: 3D modeled, designed, and assembled our autonomous catamaran, then field-tested it until it held up on the water. 7th overall out of 40+ international teams.</p>
-              <div class="project-card-meta">
-                <span class="award-pill">7th Place Overall</span>
-                <span class="award-pill">1st Place Best Website</span>
-                <span class="award-pill">3rd Place TDR</span>
-              </div>
-              <button class="btn btn-secondary btn-sm open-details-btn">View Subsystems</button>
-            </div>
-          </div>
-
-          <div class="project-card featured-card" data-category="featured" data-id="robosub">
-            <div class="project-image-wrapper featured-slides">
-              <img src="images/featured/robosub-team.jpg" alt="Team Inspiration poolside at RoboSub 2026 with the Community Outreach award" class="project-card-image featured-slide active" />
-              <img src="images/new-project/main.jpg" alt="Team Inspiration poolside with the RoboSub AUVs" class="project-card-image featured-slide" loading="lazy" />
-              <img src="images/new-project/main-2.jpg" alt="GRAEY and ONYX autonomous underwater vehicles" class="project-card-image featured-slide" loading="lazy" />
-            </div>
-            <div class="project-card-body">
-              <span class="project-card-badge">Featured / RoboSub 2026</span>
-              <h3>RoboSub 2026 — Team Inspiration</h3>
-              <p class="project-card-desc">Co-lead and lab manager: owned the bill of materials and subsystem parts lists and kept the lab build-ready through competition. 9th overall and 3rd among U.S. teams.</p>
-              <div class="project-card-meta">
-                <span class="award-pill">9th Place Overall</span>
-                <span class="award-pill">3rd Nationally</span>
-                <span class="award-pill">Community Outreach Award</span>
-              </div>
-              <button class="btn btn-secondary btn-sm open-details-btn">View Details</button>
-            </div>
-          </div>
-
-          <div class="project-card featured-card" data-category="featured" data-id="leadership">
-            <div class="project-image-wrapper featured-slides">
-              <img src="images/featured/shpe-mesa.jpg" alt="SHPE San Diego Mesa College chapter members after a spaghetti tower build" class="project-card-image featured-slide active" />
-              <img src="images/shpe-leadership.jpg" alt="Troy Prado Jr. with SHPE chapter members and officers" class="project-card-image featured-slide" loading="lazy" />
-              <img src="images/shpe/engineer-panel.png" alt="SHPE engineer panel flyer" class="project-card-image featured-slide contain" loading="lazy" />
-            </div>
-            <div class="project-card-body">
-              <span class="project-card-badge">Featured / SHPE</span>
-              <h3>SHPE — San Diego Mesa College</h3>
-              <p class="project-card-desc">One year as Director of Outreach &amp; Membership growing the chapter, then one year leading it as President: workshops, engineer panels, and hands-on build nights.</p>
-              <div class="project-card-meta">
-                <span class="award-pill">Director of Outreach &amp; Membership · 1 yr</span>
-                <span class="award-pill">President · 1 yr</span>
-              </div>
-              <button class="btn btn-secondary btn-sm open-details-btn">Read Leadership Bio</button>
+            <div class="featured-reel-bottom">
+              <button class="featured-chip open-details-btn" data-id="roboboat"><strong>RoboBoat 2026</strong> Mechanical &middot; 7th Overall &middot; 1st Best Website &middot; 3rd TDR</button>
+              <button class="featured-chip open-details-btn" data-id="robosub"><strong>RoboSub 2026</strong> Co-lead &middot; 9th Overall &middot; 3rd Nationally</button>
+              <button class="featured-chip open-details-btn" data-id="leadership"><strong>SHPE</strong> Read leadership bio</button>
             </div>
           </div>
 
