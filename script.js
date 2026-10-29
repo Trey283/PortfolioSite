@@ -128,13 +128,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 /* Portfolio Grid Filtering System */
 const filterTabs = document.querySelectorAll('.filter-tab');
 const projectGrid = document.getElementById('projectGrid');
-// Set default active filter (featured if exists)
-const defaultTab = document.querySelector('.filter-tab[data-filter="featured"]') || filterTabs[0];
+// Set default active filter (all if exists)
+const defaultTab = document.querySelector('.filter-tab[data-filter="all"]') || filterTabs[0];
 if (defaultTab) defaultTab.classList.add('active');
 function applyFilter(filter) {
   document.querySelectorAll('.project-card').forEach(card => {
-    // Featured cards repeat projects already in the grid, so "Show All" skips them
-    if ((filter === 'all' && card.dataset.category !== 'featured') || card.dataset.category === filter) {
+    if (filter === 'all' || card.dataset.category === filter) {
       card.classList.remove('hidden');
       card.classList.add('visible');
     } else {
@@ -162,10 +161,14 @@ filterTabs.forEach(tab => {
   const hero = document.getElementById('featuredReel');
   if (!hero) return;
   const band = hero.querySelector('.tgh-band');
+  // Each photo carries the headline shown while it's centred; `id` is its modal.
   const IMAGES = [
-    'images/featured/roboboat-crew-wide.jpg',
-    'images/featured/robosub-team.jpg',
-    'images/featured/shpe-mesa.jpg'
+    { src: 'images/featured/roboboat-crew-wide.jpg', id: 'roboboat', title: 'RoboBoat 2026',
+      sub: 'Mechanical crew &middot; 7th Overall of 40+ teams &middot; 1st Best Website &middot; 3rd TDR' },
+    { src: 'images/featured/robosub-team.jpg', id: 'robosub', title: 'RoboSub 2026',
+      sub: 'Co-lead &amp; lab manager &middot; 9th Overall &middot; 3rd Nationally &middot; Community Outreach Award' },
+    { src: 'images/featured/shpe-mesa.jpg', id: 'leadership', title: 'SHPE President',
+      sub: 'San Diego Mesa College &middot; 1 yr Director of Outreach &amp; Membership &rarr; 1 yr President' }
   ];
   const SLICES = 16;     // strips per tile; fewer shows corners on the edges
   const CAMERA = 1.6;    // camera distance as a multiple of the radius
@@ -199,7 +202,7 @@ filterTabs.forEach(tab => {
     return { columns, sweep, unit: round(unit), limit: round(Math.min(sweep, limit)) };
   }
 
-  IMAGES.forEach(src => { new Image().src = src; }); // tiles swap just before re-entering view
+  IMAGES.forEach(({ src }) => { new Image().src = src; }); // tiles swap just before re-entering view
   const style = document.createElement('style');
   document.head.appendChild(style);
   const mask = `linear-gradient(90deg,transparent,#000 ${fade}%,#000 ${100 - fade}%,transparent)`;
@@ -252,16 +255,17 @@ filterTabs.forEach(tab => {
         const img = document.createElement('img');
         img.alt = '';
         img.draggable = false;
-        img.src = IMAGES[first % IMAGES.length];
+        img.src = IMAGES[first % IMAGES.length].src;
         Object.assign(img.style, { left: u(-k * share), width: u(aspect), height: u(1) });
         slice.appendChild(img);
         imgs.push(img);
         tile.appendChild(slice);
       }
+      tile.photo = first % IMAGES.length;
       tile.addEventListener('animationiteration', e => {
         const lap = Math.round(e.elapsedTime / duration); // counts missed laps too
-        const src = IMAGES[(lap * columns + first) % IMAGES.length];
-        imgs.forEach(img => { img.src = src; });
+        tile.photo = (lap * columns + first) % IMAGES.length;
+        imgs.forEach(img => { img.src = IMAGES[tile.photo].src; });
       });
       tiles.push(tile);
     }
@@ -270,6 +274,38 @@ filterTabs.forEach(tab => {
   }
 
   new ResizeObserver(([entry]) => build(entry.contentRect)).observe(hero);
+
+  // Headline follows the photo nearest the centre: fade out, swap, fade in.
+  const top = hero.querySelector('.featured-reel-top');
+  const title = top.querySelector('.featured-headline');
+  const sub = top.querySelector('.featured-sub');
+  const details = hero.querySelector('.featured-chip');
+  let current = -1, swapTimer;
+  function syncCaption() {
+    const mid = hero.getBoundingClientRect().left + hero.offsetWidth / 2;
+    let best = null, bestDist = Infinity;
+    for (const tile of band.children) {
+      if (getComputedStyle(tile).visibility !== 'visible') continue;
+      const r = tile.children[SLICES / 2].getBoundingClientRect(); // middle strip = tile centre
+      const dist = Math.abs(r.left + r.width / 2 - mid);
+      if (dist < bestDist) { bestDist = dist; best = tile; }
+    }
+    if (!best || best.photo === current) return;
+    const first = current === -1;
+    current = best.photo;
+    const { id, title: t, sub: s } = IMAGES[current];
+    const apply = () => {
+      title.textContent = t;
+      sub.innerHTML = s;
+      details.dataset.id = id;
+      top.classList.remove('swapping');
+    };
+    clearTimeout(swapTimer);
+    if (first) return apply();
+    top.classList.add('swapping');
+    swapTimer = setTimeout(apply, 250);
+  }
+  setInterval(() => { if (!document.hidden) syncCaption(); }, 200);
 })();
 
 // 4. Subsystem Modal Detail Data Mapping

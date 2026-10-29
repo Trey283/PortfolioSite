@@ -171,6 +171,20 @@
     <!-- Portfolio & Projects Section -->
     <section id="projects" class="projects-section">
       <div class="container">
+        <!-- Featured reel: photos curve round a cylinder (vanilla port of 21st.dev Tilted Grid Hero, script.js).
+             The headline and button follow whichever photo is centred. -->
+        <div class="featured-reel" id="featuredReel">
+          <div class="tgh-band" aria-hidden="true"></div>
+          <div class="featured-reel-top" aria-live="polite">
+            <p class="featured-kicker">Featured</p>
+            <h3 class="featured-headline">SHPE President</h3>
+            <p class="featured-sub">San Diego Mesa College &middot; 1 yr Director of Outreach &amp; Membership &rarr; 1 yr President</p>
+          </div>
+          <div class="featured-reel-bottom">
+            <button class="featured-chip open-details-btn" data-id="leadership">View Details</button>
+          </div>
+        </div>
+
         <div class="section-header">
           <h2>Projects Portfolio</h2>
           <p>Filter my projects to explore robotics subsystems, gym equipment fabrication, and creative sustainable designs.</p>
@@ -178,8 +192,7 @@
 
         <!-- Tabbed Filter Buttons -->
         <div class="filter-tabs">
-          <button class="filter-tab active" data-filter="featured">Featured</button>
-          <button class="filter-tab" data-filter="all">Show All</button>
+          <button class="filter-tab active" data-filter="all">Show All</button>
           <button class="filter-tab" data-filter="robotics">Robotics & Autonomous</button>
           <button class="filter-tab" data-filter="gym">Gym Innovations</button>
           <button class="filter-tab" data-filter="shpe">School & SHPE</button>
@@ -189,21 +202,6 @@
 
         <!-- Project Grid -->
         <div class="project-grid" id="projectGrid">
-
-          <!-- Featured reel: photos curve round a cylinder (vanilla port of 21st.dev Tilted Grid Hero, script.js) -->
-          <div class="project-card featured-reel" data-category="featured" id="featuredReel">
-            <div class="tgh-band" aria-hidden="true"></div>
-            <div class="featured-reel-top">
-              <p class="featured-kicker">Featured</p>
-              <h3 class="featured-headline">SHPE President</h3>
-              <p class="featured-sub">San Diego Mesa College &middot; 1 yr Director of Outreach &amp; Membership &rarr; 1 yr President</p>
-            </div>
-            <div class="featured-reel-bottom">
-              <button class="featured-chip open-details-btn" data-id="roboboat"><strong>RoboBoat 2026</strong> Mechanical &middot; 7th Overall &middot; 1st Best Website &middot; 3rd TDR</button>
-              <button class="featured-chip open-details-btn" data-id="robosub"><strong>RoboSub 2026</strong> Co-lead &middot; 9th Overall &middot; 3rd Nationally</button>
-              <button class="featured-chip open-details-btn" data-id="leadership"><strong>SHPE</strong> Read leadership bio</button>
-            </div>
-          </div>
 
           <!-- Card: NablaNotes Founder -->
           <div class="project-card" data-category="work" data-id="nablanotes">

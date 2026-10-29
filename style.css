@@ -910,9 +910,14 @@ background-position: center top;
 }
 
 /* Featured reel: curved photo row (script.js) with headline above, chips below */
-.project-card.featured-reel {
-  grid-column: 1 / -1;
+.featured-reel {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 4rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   height: clamp(460px, 62vw, 620px);
   container-type: size; /* the band sizes itself in cqw/cqh */
   justify-content: space-between;
@@ -921,8 +926,13 @@ background-position: center top;
     var(--card-bg);
 }
 
-.project-card.featured-reel:hover {
-  transform: none;
+.featured-reel-top {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.featured-reel-top.swapping {
+  opacity: 0;
+  transform: translateY(-6px);
 }
 
 .tgh-band {
@@ -1030,8 +1040,8 @@ background-position: center top;
 
 @media (max-width: 768px) {
   /* stack room for the wrapped headline and chips around the band */
-  .project-card.featured-reel {
-    height: 620px;
+  .featured-reel {
+    height: 560px;
   }
 
   .featured-reel-top,
