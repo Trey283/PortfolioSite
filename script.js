@@ -166,7 +166,7 @@ filterTabs.forEach(tab => {
     { src: 'images/featured/roboboat-crew-wide.jpg', id: 'roboboat', title: 'RoboBoat 2026',
       sub: 'Mechanical crew &middot; 7th Overall of 40+ teams &middot; 1st Best Website &middot; 3rd TDR' },
     { src: 'images/featured/robosub-team.jpg', id: 'robosub', title: 'RoboSub 2026',
-      sub: 'Co-lead &amp; lab manager &middot; 9th Overall &middot; 3rd Nationally &middot; Community Outreach Award' },
+      sub: 'Co-lead &amp; lab manager &middot; 9th Overall &middot; 3rd Nationally &middot; Ahead of Cornell &amp; Duke &middot; Community Outreach Award' },
     { src: 'images/featured/shpe-mesa.jpg', id: 'leadership', title: 'SHPE President',
       sub: 'San Diego Mesa College &middot; 1 yr Director of Outreach &amp; Membership &rarr; 1 yr President' }
   ];
@@ -376,9 +376,10 @@ const projectDetails = {
       {
         id: "overview",
         name: "Overview",
-        content: "Served as co-lead and lab manager for Team Inspiration's RoboSub 2026 campaign. Spearheaded deep bill-of-materials and parts list creation across all vehicle subsystems, and managed lab organization by meticulously documenting the physical location of every component and tool — keeping the team efficient and build-ready at all times. At the international RoboSub competition in July 2026, Team Inspiration designed and deployed our AUV poolside, solving complex engineering challenges in real time and finishing 9th overall and 3rd nationally.",
+        content: "Served as co-lead and lab manager for Team Inspiration's RoboSub 2026 campaign. Spearheaded deep bill-of-materials and parts list creation across all vehicle subsystems, and managed lab organization by meticulously documenting the physical location of every component and tool — keeping the team efficient and build-ready at all times. At the international RoboSub competition in July 2026, Team Inspiration designed and deployed our AUV poolside, solving complex engineering challenges in real time and finishing 9th overall and 3rd nationally — ahead of powerhouse programs like Ivy League Cornell University (11th) and Duke University (16th).",
         highlights: [
           { icon: "fa-trophy text-yellow-500", title: "9th Place Overall — 3rd Nationally", text: "finished 9th overall out of an international field at RoboSub 2026, and 3rd among U.S. teams." },
+          { icon: "fa-ranking-star", title: "Outperformed Cornell & Duke", text: "placed above Ivy League Cornell University (11th, 2,252 pts) and Duke University (16th, 1,778 pts) in the final standings." },
           { icon: "fa-hand-holding-heart", title: "Community Outreach Award", text: "recognized for Team Inspiration's STEM engagement efforts." },
           { icon: "fa-folder-open", title: "Strategic Navigation", text: "Created a master document covering all parts, tools, tasks, and deadlines to onboard new members rapidly." }
         ],
